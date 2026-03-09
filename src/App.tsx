@@ -90,9 +90,9 @@ function App() {
     "What is Gülnihal's contact information?",
     "What is her GitHub profile link?",
   ];
-  const handleQuickSearch = async (query: string) => {
-    setQuestion(query);
-  };
+  // const handleQuickSearch = async (query: string) => {
+  //   setQuestion(query);
+  // };
 
   return (
     <div className="chat-page">
@@ -201,7 +201,7 @@ function App() {
             onKeyDown={(e) => e.key === "Enter" && sendQuestion()}
             placeholder="Ask your questions!"
           />
-          <button onClick={sendQuestion} disabled={isLoading}>
+          <button onClick={() => sendQuestion()} disabled={isLoading}>
             Send
           </button>
         </div>
