@@ -1,19 +1,20 @@
-/* ana ekran */
+/* Ana Ekran */
 .chat-page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100dvh;
   width: 100vw;
+   /* İsteğe bağlı dış arka plan rengi */
 }
 
-/* chat panel*/
+/* Chat Paneli */
 .chat-container {
   display: flex;
   flex-direction: column;
-  width: 95%; /* Mobilde biraz daha geniş */
-  max-width: 1000px;
-  height: 90vh; /* Mobilde daha fazla alan kullan */
+  width: 95%;
+  max-width: 850px; /* 1000px'den 850px'e küçültüldü */
+  height: 85vh; /* 90vh'den 85vh'e çekildi, ekranda daha derli toplu durur */
   background-color: #F3DEBA;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
@@ -21,200 +22,67 @@
   transition: all 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .chat-page {
-    position: fixed; /* Ekranı tarayıcı penceresine kilitler */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%; 
-    width: 100%;
-  }
-  .chat-container {
-    width: 100%;
-    height: 100dvh; /* mobil icin */
-    border-radius: 0; /* deleting corner pieces */
-  }
-}
-/* responsive */
-@media (max-width: 768px) {
-  .chat-header {
-    padding: 10px 15px;
-  }
-
-  .chat-header h1 {
-    font-size: 1.2rem;
-  }
-
-  .messages-container {
-    padding: 15px;
-    gap: 15px;
-  }
-
-  .message-bubble {
-    max-width: 85%; /* responsive icin */
-    font-size: 1rem !important; 
-    padding: 10px 15px;
-  }
-
-  .input-area {
-  padding: 15px;
-  background-color: #ffffff;
-  border-top: 1px solid #eee;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0; /* küçülmesini engeller */
-}
-
-  .input-area input {
-  flex: 1;
-  min-width: 0; /* overflow engeller */
-  padding: 12px 16px;
-  border: 2px solid #ABC4AA;
-  border-radius: 12px;
-  font-size: 1rem;
-}
-
- .input-area button {
-  flex-shrink: 0;
-  padding: 0 18px;
-  height: 44px;
-  background-color: #ABC4AA;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1rem;
-}
-}
-
-@media (max-width: 480px) {
-
-  .input-area {
-    padding: 10px;
-    gap: 8px;
-  }
-
-  .input-area input {
-    font-size: 0.95rem;
-    padding: 10px;
-  }
-
-  .input-area button {
-    font-size: 0.95rem;
-    padding: 0 14px;
-  }
-}
-@media (max-width: 600px) {
-  .suggestions-container {
-    display: flex;
-    flex-wrap: nowrap; /* yan yana diz */
-    overflow-x: auto; /* yatay kaydırma ekle mobil icin */
-    justify-content: flex-start;
-    padding: 10px;
-    -webkit-overflow-scrolling: touch;
-    gap: 8px;
-  }
-
-  .suggestion-card {
-    flex: 0 0 auto; /* kartların küçülmesini engelle */
-    font-size: 0.9rem;
-    padding: 8px 15px;
-  }
-  
-  /* kaydırma çubuğunu gizleme */
-  .suggestions-container::-webkit-scrollbar {
-    display: none;
-  }
-}@media (max-width: 600px) {
-  .suggestions-container {
-    display: flex;
-    flex-wrap: nowrap; /* yan yana diz */
-    overflow-x: auto; /* yatay kaydırma ekle */
-    justify-content: flex-start;
-    padding: 10px;
-    -webkit-overflow-scrolling: touch;
-    gap: 8px;
-  }
-
-  .suggestion-card {
-    flex: 0 0 auto; /* kartların küçülmesini engelle */
-    font-size: 0.9rem;
-    padding: 8px 15px;
-  }
-  
-  /* kaydırma çubuğunu gizle */
-  .suggestions-container::-webkit-scrollbar {
-    display: none;
-  }
-}
-@media (max-width: 480px) {
-  .modal-content {
-    width: 95%;
-    padding: 20px;
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-  
-  .modal-content h2 {
-    font-size: 1.3rem;
-  }
-
-  .modal-content p {
-    font-size: 0.95rem;
-  }
-}
-
-/* ust Başlık */
+/* Üst Başlık */
 .chat-header {
-  padding: 20px 30px;
+  padding: 15px 20px; /* Küçültüldü */
   background-color: #675D50;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
+}
+
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+}
+
+.chat-logo {
+  height: 35px; /* Küçültüldü */
+  width: auto;
+  object-fit: contain;
 }
 
 .chat-header h1 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* 1.5rem'den küçültüldü */
   font-weight: 600;
+  white-space: nowrap; 
 }
 
-/* mesaj alanı */
+/* Mesaj Alanı */
 .messages-container {
   flex: 1;
-  padding: 30px;
+  padding: 20px;
+  padding-bottom: 30px; /* En alttaki mesajın yapışmaması için ekstra boşluk */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-  background-size: 20px 20px; /* hafif noktalı arka plan */
+  background-size: 20px 20px;
 }
 
-/* mesaj Balonları */
+/* Mesaj Balonları */
 .message-bubble {
-  max-width: 70%;
-  padding: 14px 20px;
+  max-width: 75%;
+  padding: 12px 16px; /* Küçültüldü */
   border-radius: 15px;
-  font-size: 1rem;
+  font-size: 0.95rem; /* Standart daha okunaklı boyut */
   line-height: 1.5;
   position: relative;
 }
 
 .message-bubble.user {
   align-self: flex-end;
-  font-size: 1.2rem;
   background-color: #ABC4AA;
   color: white;
   border-bottom-right-radius: 2px;
 }
 
 .message-bubble.bot {
-  font-size: 1.2rem;
   align-self: flex-start;
   background-color: #ffffff;
   color: #212529;
@@ -222,65 +90,24 @@
   border: 1px solid #e0e0e0;
 }
 
-
-.input-area {
-  padding: 20px 30px;
-  background-color: #ffffff;
-  border-top: 1px solid #eee;
-  display: flex;
-  gap: 15px;
-}
-
-.input-area input {
-  flex: 1;
-  padding: 15px 20px;
-  border: 2px solid #e0e0e0;
-  border-color: #ABC4AA;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  transition: border-color 0.3s;
-  outline: none;
-}
-
-.input-area input:focus {
-  border-color: #ABC4AA;
-}
-
-.input-area button {
-  padding: 0 25px;
-  background-color: #ABC4AA;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: transform 0.1s, background-color 0.2s;
-}
-
-.input-area button:hover {
-  background-color: #718a70;
-}
-
-.input-area button:active {
-  transform: scale(0.98);
-}
+/* Öneri Butonları */
 .suggestions-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px 30px;
+  gap: 8px;
+  padding: 10px 20px;
   justify-content: center;
   background-color: transparent;
+  flex-shrink: 0; /* Mobilde sıkışıp mesajları kapatmasını engeller */
 }
 
 .suggestion-card {
   background-color: #ffffff;
   border: 1px solid #ABC4AA;
   color: #ABC4AA;
-  padding: 13px 20px;
+  padding: 8px 15px; /* Küçültüldü */
   border-radius: 20px;
-  font-size: 1rem;
+  font-size: 0.85rem; /* Küçültüldü */
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
@@ -292,26 +119,72 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
 }
-/* modal Arka Plan Karartma */
+
+/* Girdi Alanı */
+.input-area {
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0; /* Klavye açıldığında ezilmesini engeller */
+}
+
+.input-area input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-color: #ABC4AA;
+  border-radius: 12px;
+  font-size: 0.95rem; /* 1.2rem'den küçültüldü */
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+.input-area input:focus {
+  border-color: #ABC4AA;
+}
+
+.input-area button {
+  padding: 0 20px;
+  background-color: #ABC4AA;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem; /* Küçültüldü */
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.input-area button:hover {
+  background-color: #718a70;
+}
+
+.input-area button:active {
+  transform: scale(0.98);
+}
+
+/* Modal Arka Plan */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Arka planı karartır */
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Her şeyin üstünde görünmesi için */
+  z-index: 1000;
 }
 
 /* Modal Kutusu */
 .modal-content {
   background-color: #F3DEBA; 
-  padding: 40px;
+  padding: 30px; /* 40px'den küçültüldü */
   border-radius: 20px;
-  max-width: 500px;
+  max-width: 450px; /* Küçültüldü */
   width: 90%;
   text-align: center;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
@@ -322,18 +195,18 @@
 .modal-content h2 {
   color: #675D50;
   margin-top: 0;
+  font-size: 1.4rem;
 }
 
 .modal-content p {
   color: #212529;
-  line-height: 1.6;
-  font-size: 1.1rem;
+  line-height: 1.5;
+  font-size: 0.95rem; /* Küçültüldü */
 }
 
-/* kapatma Butonu */
 .modal-close-btn {
-  margin-top: 20px;
-  padding: 12px 30px;
+  margin-top: 15px;
+  padding: 10px 25px;
   background-color: #675D50;
   color: white;
   border: none;
@@ -347,35 +220,99 @@
   background-color: #ABC4AA;
 }
 
-/* Hafif açılma efekti */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.chat-header {
-  padding: 15px 30px;
-  background-color: #675D50;
-  color: white;
-  display: flex;
-  align-items: center;
- 
+/* =========================================
+   RESPONSIVE (MOBİL) DÜZENLEMELERİ
+   ========================================= */
+
+@media (max-width: 768px) {
+  .chat-page {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    height: 100%; 
+    width: 100%;
+  }
+
+  .chat-container {
+    width: 100%;
+    height: 100dvh;
+    border-radius: 0;
+    max-width: 100%;
+  }
+
+  .chat-header {
+    padding: 10px 15px;
+  }
+
+  .chat-header h1 {
+    font-size: 1.1rem;
+  }
+
+  .messages-container {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .message-bubble {
+    max-width: 85%;
+    font-size: 0.9rem; 
+    padding: 10px 14px;
+  }
+
+  /* Öneri balonlarını mobilde yatay kaydırılabilir yapıyoruz */
+  .suggestions-container {
+    display: flex;
+    flex-wrap: wrap; /* 'nowrap' olan değeri 'wrap' yaptık, böylece sığmayanlar alt satıra geçer */
+    justify-content: center;
+    padding: 10px 15px;
+    gap: 8px;
+    border-top: 1px solid rgba(0,0,0,0.05); 
+  }
+
+  /* Mobilde sadece ilk 3 öneriyi göster (4 ve sonrasını gizle) */
+  .suggestion-card:nth-child(n+4) {
+    display: none;
+  }
+
+  .suggestion-card {
+    flex: 0 0 auto;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  .input-area {
+    padding: 10px 15px;
+  }
+
+  .input-area input {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+
+  .input-area button {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 0.9rem;
+  }
 }
 
-.header-left-group {
-  display: flex;
-  align-items: center;
-  gap: 12px; 
-}
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.2rem;
+  }
 
-.chat-logo {
-  height: 40px; 
-  width: auto;
-  object-fit: contain;
-}
-
-.chat-header h1 {
-  margin: 0;
-  font-size: 1.5rem;
-  white-space: nowrap; 
+  .modal-content p {
+    font-size: 0.9rem;
+  }
 }
